@@ -61,13 +61,61 @@ console.log(newArr)
 
 */
 
+//**Filter out all the 'FAIL' elements in an array
+//**without using the Array.filter method
+
 let grades = ['A+', 'A', 'FAIL']
 
+let goodGrades = []
+
 for (let i = 0; i < grades.length; ++i) {
-    console.log(grades[i]);
+if (grades[i] !== 'FAIL') {
+    goodGrades.push(grades[i]);
+}
 }
 
-// let goodGrades = grades.filter(element => element !== 'FAIL')
+console.log(goodGrades);
 
-// console.log(goodGrades) 
+
+/* Using filter 
+
+let goodGrades = grades.filter(element => element !== 'FAIL')
+
+console.log(goodGrades) */
+
+//Array map basic
+
+
+let arr = [1, 4, 9, 16]
+
+let newArray = arr.map(element => 'dog')
+
+console.log(newArray)
+
+
+//Turn each element in an array of dollars into cents
+
+let dollars = [1, 5, 10, 3, 0, 10, 20];
+
+/*
+//long method
+let cents = dollars.map((element) => {
+return element * 100
+})
+
+//short
+let cents = dollars.map(element => element * 100)
+*/
+
+//Using for loop (brute force)
  
+let cents = [];
+
+for (let i = 0; i < dollars.length; ++i) {
+   cents.push(dollars[i] * 100)    
+}
+
+    console.log(cents)
+
+
+
