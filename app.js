@@ -1,4 +1,3 @@
-
 /*
 for (let i = 1; i <= 20; ++i) {
     if (i % 3 === 0 && i % 5 === 0){
@@ -64,18 +63,17 @@ console.log(newArr)
 //**Filter out all the 'FAIL' elements in an array
 //**without using the Array.filter method
 
-let grades = ['A+', 'A', 'FAIL']
+let grades = ["A+", "A", "FAIL"];
 
-let goodGrades = []
+let goodGrades = [];
 
 for (let i = 0; i < grades.length; ++i) {
-if (grades[i] !== 'FAIL') {
+  if (grades[i] !== "FAIL") {
     goodGrades.push(grades[i]);
-}
+  }
 }
 
 console.log(goodGrades);
-
 
 /* Using filter 
 
@@ -85,13 +83,11 @@ console.log(goodGrades) */
 
 //Array map basic
 
+let arr = [1, 4, 9, 16];
 
-let arr = [1, 4, 9, 16]
+let newArray = arr.map((element) => "dog");
 
-let newArray = arr.map(element => 'dog')
-
-console.log(newArray)
-
+console.log(newArray);
 
 //Turn each element in an array of dollars into cents
 
@@ -108,14 +104,103 @@ let cents = dollars.map(element => element * 100)
 */
 
 //Using for loop (brute force)
- 
+
 let cents = [];
 
 for (let i = 0; i < dollars.length; ++i) {
-   cents.push(dollars[i] * 100)    
+  cents.push(dollars[i] * 100);
 }
 
-    console.log(cents)
+console.log(cents);
+
+//Objects
+
+let users = [
+  {
+    username: "Fabio",
+    email: "fabio_corrales@yahoo.com",
+    password: "test123",
+    subscriptionStatus: "VIP",
+    discordId: "Fabio Corrales#0001",
+    lessonsCompleted: [0, 1],
+  },
+  {
+    username: "Mitri",
+    email: "mitri@yahoo.com",
+    password: "mitri123",
+    subscriptionStatus: "VIP",
+    discordId: "Mitri#0001",
+    lessonsCompleted: [0, 1, 2, 3],
+  },
+];
+
+// Logging user in
+
+function login(email, password) {
+  for (let i = 0; i < users.length; ++i) {
+    if (users[i].email === email) {
+      console.log(users[i]);
+      if (users[i].password === password) {
+        console.log("log the user in - the details are correct");
+      } else {
+        console.log("password is incorrect - try again");
+      }
+      return;
+    }
+  }
+  console.log("could not find an email that matches");
+}
+
+login("fabio_corrales@yahoo.com", "test123");
+login("thisemaildoesntexist@yahoo.com", "test");
+
+console.log(users[0].username);
+
+console.log(users[1].lessonsCompleted.map((elem) => elem * 2));
+
+//Create register function using an object
+
+function register(user){
+users.push(user);
+}
 
 
+register({
+
+    username: "fabz",
+    email: "fabz@gmail.com",
+    password:"fabz123",
+    subscriptionStatus: "subscribed",
+    discordId: "fabz#0001",
+    lessonsCompeleted: [0, 1]
+}
+);
+
+console.log(users);
+login("fabz@gmail.com", "fabz123")
+
+//First way of accessing an element, most used
+
+console.log(document.querySelector('#title'));
+
+//Second way of accessing an element, better practice
+
+(document.getElementById('title'))
+
+//Change HTML
+
+document.querySelector('#title').innerHTML = 'Testing'
+
+//Change CSS
+document.querySelector('#title').style.fontsize = '16px'
+
+//Functional button
+
+function changeTitleToRed () {
+  document.querySelector('#title').style.color = 'red'
+}
+
+function toggleDarkMode() {
+  document.querySelector('body').classList.toggle("dark-theme")
+}
 
